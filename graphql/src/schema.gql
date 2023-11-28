@@ -1,0 +1,262 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Estudiante {
+  id: ID!
+  identificacion: String!
+  nombre: String!
+  direccion: String!
+  telefono: [String!]
+  tipo: Int!
+  estado: Boolean!
+}
+
+type Medico {
+  id: ID!
+  identificacion: String!
+  nombre: String!
+  direccion: String!
+  telefono: [String!]
+  tipo: Int!
+  estado: Boolean!
+  disponible: Boolean!
+}
+
+type Enfermedad {
+  id: ID!
+  nombre: String!
+}
+
+type HistorialM {
+  id: ID!
+  sintomas: String!
+  diagnostico: String!
+  medicamentos: [String!]
+  doctorId: Int!
+  estaInternado: Boolean!
+  enfermedades: [Enfermedad!]
+}
+
+type Cita {
+  id: ID!
+  paciente_id: String!
+  medico_id: String!
+  fechayhora_cita: String!
+  estado: Boolean!
+}
+
+type ResultadoExa {
+  id: ID!
+  resultadoID: String!
+  laboratorioID: Int!
+  pacienteID: String!
+  fechadeexamen: String!
+  resultado: String!
+  tipo: Int!
+  estado: Boolean
+}
+
+type Receta {
+  id: ID!
+  paciente_id: String!
+  medico_id: String!
+  fechayhora_receta: String!
+  estado: Boolean!
+}
+
+type Laboratorio {
+  id: ID!
+  codigo: String!
+  nombre: String!
+  direccion: String!
+  telefono: [String!]
+  tipo: Int!
+  estado: Boolean!
+}
+
+type Query {
+  estudiantes: [Estudiante!]!
+  estudiante(id: ID!): Estudiante!
+  medicos: [Medico!]!
+  medico(id: ID!): Medico!
+  historiales: [HistorialM!]!
+  historial(id: ID!): HistorialM!
+  enfermedades: [Enfermedad!]!
+  enfermedad(id: ID!): Enfermedad!
+  cita(id: ID!): Cita!
+  resultadosExa: [ResultadoExa!]!
+  resultadoExa(id: ID!): ResultadoExa!
+  receta(id: ID!): Receta!
+  laboratorios: [Laboratorio!]!
+  laboratorio(id: ID!): Laboratorio!
+}
+
+type Mutation {
+  createEstudiante(createEstudianteInput: CreateEstudianteInput!): Estudiante!
+  updateEstudiante(updateEstudianteInput: UpdateEstudianteInput!): Estudiante!
+  removeEstudiante(id: ID!): Estudiante!
+  createMedico(createMedicoInput: CreateMedicoInput!): Medico!
+  updateMedico(updateMedicoInput: UpdateMedicoInput!): Medico!
+  removeMedico(id: ID!): Medico!
+  createHistorial(createHistorialInput: CreateHistorialMInput!): HistorialM!
+  updateHistorial(updateHistorialInput: UpdateHistorialMInput!): HistorialM!
+  removeHistorial(id: ID!): HistorialM!
+  createEnfermedad(createEnfermedadInput: CreateEnfermedadInput!): Enfermedad!
+  updateEnfermedad(updateEnfermedadInput: UpdateEnfermedadInput!): Enfermedad!
+  removeEnfermedad(id: ID!): Enfermedad!
+  createCita(createCitaInput: CreateCitaInput!): Cita!
+  updateCita(updateCitaInput: UpdateCitaInput!): Cita!
+  removeCita(id: ID!): Cita!
+  createResultadoExa(createResultadoExaInput: CreateResultadoExaInput!): ResultadoExa!
+  updateResultadoExa(updateResultadoExaInput: UpdateResultadoExaInput!): ResultadoExa!
+  removeResultadoExa(id: ID!): ResultadoExa!
+  createReceta(createRecetaInput: CreateRecetaInput!): Receta!
+  updateReceta(updateRecetaInput: UpdateRecetaInput!): Receta!
+  removeReceta(id: ID!): Receta!
+  createLaboratorio(createLaboratorioInput: CreateLaboratorioInput!): Laboratorio!
+  updateLaboratorio(updateLaboratorioInput: UpdateLaboratorioInput!): Laboratorio!
+  removeLaboratorio(id: ID!): Laboratorio!
+}
+
+input CreateEstudianteInput {
+  identificacion: String!
+  nombre: String!
+  direccion: String!
+  telefono: [String!]
+  tipo: Int!
+  estado: Boolean!
+}
+
+input UpdateEstudianteInput {
+  identificacion: String
+  nombre: String
+  direccion: String
+  telefono: [String!]
+  tipo: Int
+  estado: Boolean
+  id: ID!
+}
+
+input CreateMedicoInput {
+  identificacion: String!
+  nombre: String!
+  direccion: String!
+  telefono: [String!]
+  tipo: Int!
+  estado: Boolean!
+}
+
+input UpdateMedicoInput {
+  identificacion: String
+  nombre: String
+  direccion: String
+  telefono: [String!]
+  tipo: Int
+  estado: Boolean
+  id: ID!
+}
+
+input CreateHistorialMInput {
+  sintomas: String!
+  diagnostico: String!
+  medicamentos: [String!]
+  doctorId: Int!
+  estaInternado: Boolean!
+  enfermedades: [CreateEnfermedadInput!]
+}
+
+input CreateEnfermedadInput {
+  nombre: String!
+  historialId: ID!
+}
+
+input UpdateHistorialMInput {
+  sintomas: String
+  diagnostico: String
+  medicamentos: [String!]
+  doctorId: Int
+  estaInternado: Boolean
+  enfermedades: [CreateEnfermedadInput!]
+  id: ID!
+}
+
+input UpdateEnfermedadInput {
+  nombre: String
+  historialId: ID
+  id: ID!
+}
+
+input CreateCitaInput {
+  id: ID!
+  identificacion: String!
+  nombre: String!
+  direccion: String!
+  telefono: [String!]
+  tipo: Int!
+  estado: Boolean!
+}
+
+input UpdateCitaInput {
+  id: ID!
+  identificacion: String
+  nombre: String
+  direccion: String
+  telefono: [String!]
+  tipo: Int
+  estado: Boolean
+}
+
+input CreateResultadoExaInput {
+  resultadoID: String!
+  laboratorioID: String!
+  pacienteID: String!
+  fechadeexamen: String!
+  resultado: String!
+  tipo: Int!
+  estado: Boolean!
+}
+
+input UpdateResultadoExaInput {
+  resultadoID: String
+  laboratorioID: String
+  pacienteID: String
+  fechadeexamen: String
+  resultado: String
+  tipo: Int
+  estado: Boolean
+  id: ID!
+}
+
+input CreateRecetaInput {
+  id: ID!
+  identificacion: String!
+  nombre: String!
+  direccion: String!
+  telefono: [String!]
+  tipo: Int!
+  estado: Boolean!
+}
+
+input UpdateRecetaInput {
+  id: ID!
+  identificacion: String
+  nombre: String
+  direccion: String
+  telefono: [String!]
+  tipo: Int
+  estado: Boolean
+}
+
+input CreateLaboratorioInput {
+  codigo: String!
+  nombre: String!
+  direccion: String!
+  telefono: [String!]
+  tipo: Int!
+  estado: Boolean
+}
+
+input UpdateLaboratorioInput {
+  id: ID!
+}
