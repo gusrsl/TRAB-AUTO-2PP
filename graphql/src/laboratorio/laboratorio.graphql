@@ -1,0 +1,24 @@
+type Laboratorio {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateLaboratorioInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateLaboratorioInput {
+  id: Int!
+}
+
+type Query {
+  laboratorio: [Laboratorio]!
+  laboratorio(id: Int!): Laboratorio
+}
+
+type Mutation {
+  createLaboratorio(createLaboratorioInput: CreateLaboratorioInput!): Laboratorio!
+  updateLaboratorio(updateLaboratorioInput: UpdateLaboratorioInput!): Laboratorio!
+  removeLaboratorio(id: Int!): Laboratorio
+}
