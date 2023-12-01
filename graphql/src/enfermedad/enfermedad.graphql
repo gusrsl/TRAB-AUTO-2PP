@@ -1,0 +1,24 @@
+type Enfermedad {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateEnfermedadInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateEnfermedadInput {
+  id: Int!
+}
+
+type Query {
+  enfermedad: [Enfermedad]!
+  enfermedad(id: Int!): Enfermedad
+}
+
+type Mutation {
+  createEnfermedad(createEnfermedadInput: CreateEnfermedadInput!): Enfermedad!
+  updateEnfermedad(updateEnfermedadInput: UpdateEnfermedadInput!): Enfermedad!
+  removeEnfermedad(id: Int!): Enfermedad
+}
