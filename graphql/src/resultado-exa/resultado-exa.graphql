@@ -1,0 +1,24 @@
+type ResultadoExa {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateResultadoExaInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateResultadoExaInput {
+  id: Int!
+}
+
+type Query {
+  resultadoExa: [ResultadoExa]!
+  resultadoExa(id: Int!): ResultadoExa
+}
+
+type Mutation {
+  createResultadoExa(createResultadoExaInput: CreateResultadoExaInput!): ResultadoExa!
+  updateResultadoExa(updateResultadoExaInput: UpdateResultadoExaInput!): ResultadoExa!
+  removeResultadoExa(id: Int!): ResultadoExa
+}
