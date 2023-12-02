@@ -1,0 +1,24 @@
+type Receta {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateRecetaInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateRecetaInput {
+  id: Int!
+}
+
+type Query {
+  receta: [Receta]!
+  receta(id: Int!): Receta
+}
+
+type Mutation {
+  createReceta(createRecetaInput: CreateRecetaInput!): Receta!
+  updateReceta(updateRecetaInput: UpdateRecetaInput!): Receta!
+  removeReceta(id: Int!): Receta
+}
