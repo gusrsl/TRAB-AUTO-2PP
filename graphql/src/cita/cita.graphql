@@ -1,0 +1,24 @@
+type Cita {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateCitaInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateCitaInput {
+  id: Int!
+}
+
+type Query {
+  cita: [Cita]!
+  cita(id: Int!): Cita
+}
+
+type Mutation {
+  createCita(createCitaInput: CreateCitaInput!): Cita!
+  updateCita(updateCitaInput: UpdateCitaInput!): Cita!
+  removeCita(id: Int!): Cita
+}
