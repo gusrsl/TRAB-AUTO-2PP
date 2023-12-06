@@ -1,0 +1,61 @@
+<ion-content>
+<ion-header>
+  <ion-toolbar class="header" lines="none">
+    <ion-buttons slot="start">
+      <ion-col size="2.5">
+        <ion-img id="profile" src="assets/images/medico-avatar.png" alt="profile"></ion-img>
+      </ion-col>
+    </ion-buttons>
+    <ion-title class="det">
+      <ion-label id="greet">Bienvenido!</ion-label><br>
+      <ion-label id="name">Dr. Albuja</ion-label>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-col size="1">
+
+      </ion-col>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-item class="section" lines="none">
+    <ion-label id="title">Proximas Consultas</ion-label>
+    <ion-icon color="primary" slot="end" name="arrow-forward-outline"></ion-icon>
+  </ion-item>
+
+  <div class="slider">
+    <div *ngFor="let item of sliderItems" class="patient-card" [ngClass]="{'active-card': item.active}">
+      <div class="ion-padding">
+        <ion-item lines="none" class="ion-no-padding">
+          <ion-col>
+            <ion-img id="patient" src="assets/images/user-avatar.png" alt="profile"
+
+            ></ion-img>
+          </ion-col>
+          <ion-col class="date">
+            <span>5:45PM</span><br>
+            <span>Dic 7</span>
+          </ion-col>
+        </ion-item>
+        <p>{{ item.name }}</p>
+        <ion-button shape="round" expand="full">{{ item.active ? 'Datos de cita medica' : 'Datos de cita medica' }}</ion-button>
+      </div>
+    </div>
+  </div>
+
+  <ion-item class="section" lines="none">
+    <ion-label id="title">Perfiles de proximos pacientes</ion-label>
+    <ion-icon color="primary" slot="end" name="arrow-forward-outline"></ion-icon>
+  </ion-item>
+
+  <div class="slider">
+    <div *ngFor="let item of patientProfiles" class="patient-card">
+      <div class="ion-padding">
+        <ion-avatar>
+          <ion-icon name="add-outline"></ion-icon>
+        </ion-avatar>
+      </div>
+    </div>
+  </div>
+</ion-content>
